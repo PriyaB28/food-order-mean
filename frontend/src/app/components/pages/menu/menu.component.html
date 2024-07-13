@@ -1,0 +1,71 @@
+  <!-- food section -->
+
+  <section class="food_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Our Menu
+        </h2>
+      </div>
+
+      <ul class="filters_menu">
+        <li class="active" data-filter="*">All</li>
+        <li data-filter=".burger">Burger</li>
+        <li data-filter=".pizza">Pizza</li>
+        <li data-filter=".pasta">Pasta</li>
+        <li data-filter=".fries">Fries</li>
+      </ul>
+
+      <div class="filters-content">
+        <div class="row grid">
+            <div class="col-sm-6 col-lg-4 all {{item.category}}" *ngFor="let item of Foods">
+                <div class="box">
+                  <a routerLink="">
+                    <div class="img-box">
+                      <img [src]="item.imageUrl" alt="">
+                    </div>
+                    <div class="detail-box">
+                      <h5>
+                        {{item.name}}
+                      </h5>
+                      <p>
+                       {{item.desc}}
+                      </p>
+                      <div class="options">
+                          <star-rating [starType]="'svg'" [rating]="item.stars"></star-rating>
+                        <h5>
+                          ${{item.price}}
+                        </h5>
+                       
+                      </div>
+                      <div class="options cooktime">
+                        <h6 class="origins">
+                            <i class="fa fa-map-marker-alt"></i> &nbsp;<span *ngFor="let origin of item.origins">{{origin}}
+   
+                            </span> </h6>
+                        <h6>
+                         <i class="fa fa-clock"></i> {{item.cookTime}}  min
+                          </h6>
+                        
+                    </div>
+                      <div class="options product-item-footer">
+                        <span></span>
+                        <a href="">
+                            <i class="fa fa-shopping-cart text-white"></i>
+                          </a>
+                    </div>
+                    </div>
+                </a>
+                </div>
+              </div>
+        </div>
+      </div>
+      <div class="btn-box">
+        <a href="">
+          View More
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- end food section -->
