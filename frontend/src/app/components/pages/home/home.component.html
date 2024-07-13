@@ -1,0 +1,187 @@
+ <!-- offer section -->
+
+ <section class="offer_section layout_padding-bottom">
+    <div class="offer_container">
+      <div class="container ">
+        <div class="row">
+          <div class="col-md-6  ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="\assets\images/o1.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Tasty Thursdays
+                </h5>
+                <h6>
+                  <span>20%</span> Off
+                </h6>
+                <a href="">
+                  Order Now 
+                  <i class="fa fa-shopping-cart"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6  ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="\assets\images/o2.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Pizza Days
+                </h5>
+                <h6>
+                  <span>15%</span> Off
+                </h6>
+                <a href="">
+                  Order Now 
+                <i class="fa fa-shopping-cart"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- end offer section -->
+  
+  <!-- food section -->
+  
+  <section class="food_section layout_padding-bottom">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Our Menu
+        </h2>
+      </div>
+      <!-- <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <button id="button-addon2" type="submit" class="btn btn-link text-warning"><i class="fa fa-search"></i></button>
+          </div>
+          <input type="search"  placeholder="What're you searching for?" aria-describedby="button-addon2" class="form-control border-0 bg-light">
+        </div>
+      </div> -->
+      <app-search></app-search>
+      <ul class="filters_menu">
+        <li class="active" data-filter="*">All</li>
+        <li data-filter=".burger">Burger</li>
+        <li data-filter=".pizza">Pizza</li>
+        <li data-filter=".chicken">Chicken</li>
+        <li data-filter=".fries">Fries</li>
+      </ul>
+  
+      <div class="filters-content">
+        <div class="row grid">
+            <div class="col-sm-6 col-lg-4 all {{item.category}}" *ngFor="let item of Foods">
+                <div class="box">
+                  <a routerLink="">
+                    <div class="img-box">
+                      <img [src]="item.imageUrl" alt="">
+                    </div>
+                    <div class="detail-box">
+                      <h5>
+                        {{item.name}}
+                      </h5>
+                      <p>
+                       {{item.desc}}
+                      </p>
+                      <div class="options">
+                          <star-rating [starType]="'svg'" [rating]="item.stars"></star-rating>
+                        <h5>
+                          ${{item.price}}
+                        </h5>
+                       
+                      </div>
+                      <div class="options cooktime">
+                        <h6 class="origins">
+                            <i class="fa fa-map-marker"></i> &nbsp;<span *ngFor="let origin of item.origins">{{origin}}
+   
+                            </span> </h6>
+                        <h6>
+                         <i class="fa fa-clock"></i> {{item.cookTime}}  min
+                          </h6>
+                        
+                    </div>
+                      <div class="options product-item-footer">
+                        <span></span>
+                        <a href="">
+                            <i class="fa fa-shopping-cart text-white"></i>
+                          </a>
+                    </div>
+                    </div>
+                </a>
+                </div>
+              </div>
+        </div>
+      </div>
+      <div class="btn-box">
+        <a href="">
+          View More
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- end food section -->
+  
+   <!-- client section -->
+  
+   <section class="client_section layout_padding-bottom">
+    <div class="container">
+      <div class="heading_container heading_center psudo_white_primary mb_45">
+        <h2>
+          What Says Our Customers
+        </h2>
+      </div>
+      <!-- <div class="carousel-wrap row "> -->
+        
+        <owl-carousel-o [options]="customOptions" >
+          <ng-template class="item" carouselSlide>
+            <div class="box">
+              <div class="detail-box">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                </p>
+                <h6>
+                  Moana Michell
+                </h6>
+                <p>
+                  magna aliqua
+                </p>
+              </div>
+              <div class="img-box">
+                <img src="/assets/images/client1.jpg" alt="" class="box-img">
+              </div>
+            </div>
+          </ng-template>
+          <ng-template class="item" carouselSlide>
+            <div class="box">
+              <div class="detail-box">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                </p>
+                <h6>
+                  Mike Hamell
+                </h6>
+                <p>
+                  magna aliqua
+                </p>
+              </div>
+              <div class="img-box">
+                <img src="/assets/images/client2.jpg" alt="" class="box-img">
+              </div>
+            </div>
+          </ng-template>
+        </owl-carousel-o>
+      
+      <!-- </div> -->
+    </div>
+  </section>
+  
+  <!-- end client section -->
+  
