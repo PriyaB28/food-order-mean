@@ -1,0 +1,22 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Priya",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PriyaB28/food-order-mean.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PriyaB28/food-order-mean/issues"
+  },
+  "homepage": "https://github.com/PriyaB28/food-order-mean#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
