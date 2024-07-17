@@ -1,0 +1,49 @@
+
+    <!-- Cart Section -->
+    <h3 class="text-medium font-medium center p-2">Shopping Cart</h3>
+    <app-not-found [visible]="!cart || !cart.cartItems.length" [notFoundMessage]="'Cart is Empty'" 
+    [resetLinkText]="'Go To Homepage'" [resetLink]="'/'" ></app-not-found>
+
+    <div class="cart containerr " id="cart" *ngIf="cart.totalPrice !=0 ">
+       <div class="cart-wrapper">
+          <div class="cart-content"  *ngFor="let items of cart.cartItems">
+             <div class="cart-image">
+                <img src="{{items.food.imageUrl}}" alt="product">
+             </div>
+             <div class="cart-detail">
+                <div class="cart-title" >
+                    <h3 class="text-base font-semi">{{items.food.name}}</h3>
+                    <div class="cart-remove">
+                        <button class="cart-button" role="button" (click)="removeFromCart(items.food)">
+                           <i class="fa fa-trash"></i>
+                        </button>
+                     </div>
+                </div>
+               
+                <p class="text-small font-medium">${{items.price}}</p>
+                <div class="cart-counter">
+                   <div class="cart-block">
+                      <button  class="cart-button" role="button" (click)="decreaseQuantity(items.food.id,items.quantity)" >
+                         <i class="fa fa-minus"></i>
+                      </button>
+                      <span class="cart-amount">{{items.quantity}}</span>
+                      <button type="button" class="cart-button" role="button" (click)="increaseQuantity(items.food.id,items.quantity)">
+                         <i class="fa fa-plus"></i>
+                      </button>
+                   </div>
+                   
+                </div>
+             </div>
+          </div>
+       </div>
+       <div class="cart-checkout">
+        <div class="cart-total">
+           <p class="text-base font-medium">Total:</p>
+           <p class="text-medium font-semi">${{cart.totalPrice}}</p>
+        </div>
+        <button class="btn btn-darken" disabled>
+           Checkout <i class="bx bx-chevron-right"></i>
+        </button>
+     </div>
+    </div>
+    
