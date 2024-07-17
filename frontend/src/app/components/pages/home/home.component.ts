@@ -2,7 +2,6 @@ import { Component, inject } from '@angular/core';
 import { FoodService } from 'src/app/services/food.service';
 import { Food } from 'src/app/shared/models/food';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,21 +11,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class HomeComponent {
   Foods:Food[] = [];
   foodService : FoodService = inject(FoodService)
-  activatedRoute:ActivatedRoute = inject(ActivatedRoute)
-  route:Router = inject(Router)
 
   constructor(){
-
-    this.activatedRoute.params.subscribe((params)=>{      
-      if(params['searchTerm']){
-        this.Foods  = this.foodService.getFoodBySearchTerm(params['searchTerm'])
-      }else{
-        this.Foods = this.foodService.getAllFood()
-      }
-    })
-
   }
   ngOnInit(){
+    this.Foods = this.foodService.getAllFood()
   }
 
  

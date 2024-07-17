@@ -117,3 +117,12 @@
   
   }
 
+  :host ::ng-deep .star-container {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    justify-content: center;
+    margin-left: 48px;
+    margin-right: 0px;
+    transition: all 0.3s ease;
+  }

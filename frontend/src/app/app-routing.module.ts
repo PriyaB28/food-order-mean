@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/pages/home/home.component';
 import { MenuComponent } from './components/pages/menu/menu.component';
+import { FoodDetailComponent } from './components/pages/food-detail/food-detail.component';
+import { CartPageComponent } from './components/pages/cart-page/cart-page.component';
 
 const routes: Routes = [
   {
@@ -10,16 +12,26 @@ const routes: Routes = [
   },
   {
     path: 'search/:searchTerm',
-    component: HomeComponent
+    component: MenuComponent
   },
   {
     path:"menu",
     component:MenuComponent
+  },
+  {
+    path:"food-detail/:id",
+    component:FoodDetailComponent
+  },
+  {
+    path:"cart-page",
+    component:CartPageComponent
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled', // Add options right here
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

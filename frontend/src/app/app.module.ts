@@ -11,6 +11,9 @@ import { StarRatingModule } from 'angular-star-rating';
 import { SearchComponent } from './components/partials/search/search.component';
 import { MenuComponent } from './components/pages/menu/menu.component';
 import { FooterComponent } from './components/partials/footer/footer.component';
+import { FoodDetailComponent } from './components/pages/food-detail/food-detail.component';
+import { CartPageComponent } from './components/pages/cart-page/cart-page.component';
+import { NotFoundComponent } from './components/partials/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { FooterComponent } from './components/partials/footer/footer.component';
     SearchComponent,
     MenuComponent,
     FooterComponent,
+    FoodDetailComponent,
+    CartPageComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
