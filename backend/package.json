@@ -17,6 +17,13 @@
   "homepage": "https://github.com/PriyaB28/food-order-mean#readme",
   "description": "",
   "dependencies": {
-    "express": "^4.19.2"
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "mongoose": "^8.5.1",
+    "nodemon": "^3.1.4",
+    "typescript": "^5.5.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.11"
   }
 }
