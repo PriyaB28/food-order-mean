@@ -14,6 +14,10 @@ import { FooterComponent } from './components/partials/footer/footer.component';
 import { FoodDetailComponent } from './components/pages/food-detail/food-detail.component';
 import { CartPageComponent } from './components/pages/cart-page/cart-page.component';
 import { NotFoundComponent } from './components/partials/not-found/not-found.component';
+import { HttpClientModule } from  '@angular/common/http';
+import { NgxMasonryModule } from 'ngx-masonry';
+import { LoginComponent } from './components/pages/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,13 +30,17 @@ import { NotFoundComponent } from './components/partials/not-found/not-found.com
     FoodDetailComponent,
     CartPageComponent,
     NotFoundComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     CarouselModule ,
-    StarRatingModule.forRoot()
+    StarRatingModule.forRoot(),
+    HttpClientModule ,
+    NgxMasonryModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

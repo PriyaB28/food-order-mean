@@ -7,21 +7,23 @@
     </div>
     <app-search></app-search>
     <ul class="filters_menu">
-      <li class="active" data-filter="*">All</li>
-      <li data-filter=".burger">Burger</li>
-      <li data-filter=".pizza">Pizza</li>
-      <li data-filter=".chicken">chicken</li>
-      <li data-filter=".fries">Fries</li>
+      <li class="filter" (click)="filters('app')">All</li>
+      <li (click)="filters('burger')">Burger</li>
+      <li (click)="filters('pizza')">Pizza</li>
+      <li (click)="filters('chicken')">Chicken</li>
+      <li (click)="filters('fries')">Fries</li>
     </ul>
 
     <div class="filters-content">
-      <div class="row grid">
-        <div
-          class="col-sm-6 col-lg-4 all {{ item.category }}"
+      <ngx-masonry>
+        <ngx-masonry-item
+          ngxMasonryItem
+          class="  col-sm-6 col-lg-4 all {{ item.category }}"
           *ngFor="let item of Foods"
+          #masonry
         >
           <div class="box">
-            <a routerLink="/food-detail/{{item.id}}">
+            <a routerLink="/food-detail/{{ item.id }}">
               <div class="img-box">
                 <img [src]="item.imageUrl" alt="" />
               </div>
@@ -42,7 +44,7 @@
                 </div>
                 <div class="options cooktime">
                   <h6 class="origins">
-                    <i class="fa fa-map-marker-alt"></i> &nbsp;<span
+                    <i class="fa fa-map-marker"></i> &nbsp;<span
                       *ngFor="let origin of item.origins"
                       >{{ origin }}
                     </span>
@@ -58,8 +60,8 @@
               </div>
             </a>
           </div>
-        </div>
-      </div>
+        </ngx-masonry-item>
+      </ngx-masonry>
     </div>
     <div class="btn-box">
       <a href=""> View More </a>

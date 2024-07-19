@@ -12,10 +12,10 @@ import { Food } from 'src/app/shared/models/food';
 export class FoodDetailComponent {
   foodService: FoodService = inject(FoodService);
   activatedRoute: ActivatedRoute = inject(ActivatedRoute);
-  route:Router= inject(Router)
+  route: Router = inject(Router);
   foodId!: string;
-  foodDetail!: Food 
-  cartService:CartService = inject(CartService)
+  foodDetail!: Food;
+  cartService: CartService = inject(CartService);
   constructor() {
     this.foodService.isSubpage.next(true);
     this.activatedRoute.params.subscribe((params) => {
@@ -23,12 +23,14 @@ export class FoodDetailComponent {
     });
 
     if (this.foodId) {
-      this.foodDetail = this.foodService.getFoodById(this.foodId);
+      this.foodService.getFoodById(this.foodId).subscribe((detail) => {
+        this.foodDetail = detail;
+      });
     }
   }
 
-  addToCart(food:Food){
-    this.cartService.addToCart(food)
+  addToCart(food: Food) {
+    this.cartService.addToCart(food);
     this.route.navigateByUrl('/cart-page');
   }
 }
