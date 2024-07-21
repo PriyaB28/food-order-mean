@@ -1,0 +1,49 @@
+<div class="background">
+  <div class="login-container">
+    <div class="login-form">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" action="">
+        <input
+          type="text"
+          placeholder="Email"
+          class="input-field"
+          formControlName="email"
+        />
+        <span
+          class="text-small text-danger"
+          *ngIf="email.hasError('required') && email.touched"
+        >
+          Email field is required</span
+        >
+        <span class="text-small text-danger" *ngIf="email.hasError('email')">
+          Please enter valid email</span
+        >
+        <input
+          type="password"
+          placeholder="Password"
+          class="input-field"
+          formControlName="password"
+        />
+        <span
+          class="text-small text-danger"
+          *ngIf="password.hasError('required') && password.touched"
+        >
+          Password field is required</span
+        >
+        <span
+          class="text-small text-danger"
+          *ngIf="password.hasError('minlength')"
+        >
+          Please enter valid password</span
+        >
+        <button
+          type="submit"
+          class="login-button"
+          [disabled]="!loginForm.valid"
+        >
+          Login
+        </button>
+        <button type="button" class="register-button">Register</button>
+      </form>
+    </div>
+  </div>
+</div>

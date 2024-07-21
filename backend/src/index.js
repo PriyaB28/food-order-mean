@@ -3,8 +3,10 @@ const app = express();
 const dotenv = require("dotenv");
 const cors = require("cors");
 const dbConnection = require("./config/db");
-const foodModel = require("./models/Food.ts");
+const foodModel = require("./models/Food");
+const userModel = require("./models/User");
 const foodRouter = require("./routes/food.routes");
+const loginRouter = require("./routes/login.routes");
 
 dotenv.config({ path: "../.env" });
 
@@ -22,6 +24,18 @@ app.get("/", async (req, res) => {
   res.send("hello");
 });
 
+app.get("/seed", async (req, res) => {
+    let result = await userModel.create([
+{
+  name:'user',
+  email:'user@gmail.com',
+  password:'user123',
+  isAdmin:true
+}
+    ])
+    res.send("done");
+  }
+)
 // app.get("/seed", async (req, res) => {
 //   let result = await foodModel.create([
 //     {
@@ -108,6 +122,7 @@ app.get("/", async (req, res) => {
 //   res.send("done");
 // });
 app.use("/foodItems", foodRouter);
+app.use("/api/user", loginRouter);
 app.listen(Port, () => {
     console.log("server started :" + Port);
 });

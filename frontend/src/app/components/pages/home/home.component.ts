@@ -22,7 +22,9 @@ export class HomeComponent {
     initLayout: false,
   };
 
-  constructor() {}
+  constructor() {
+    this.foodService.isSubpage.next(false);
+  }
 
   ngOnInit() {
     // this.Foods = this.foodService.getAllFood()

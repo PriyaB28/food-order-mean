@@ -18,6 +18,7 @@ import { HttpClientModule } from  '@angular/common/http';
 import { NgxMasonryModule } from 'ngx-masonry';
 import { LoginComponent } from './components/pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     StarRatingModule.forRoot(),
     HttpClientModule ,
     NgxMasonryModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

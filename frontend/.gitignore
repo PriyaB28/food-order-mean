@@ -40,3 +40,9 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+
+*.component copyy.ts
+*.component coppy.ts
+*.component copy 2.ts
+*.service copy.ts

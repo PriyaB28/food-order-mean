@@ -27,11 +27,15 @@ export class FoodService {
     );
   }
 
+  // getFoodById(id: string) {
+  //   return this.getAllFood().pipe(
+  //     map((food) => {
+  //       return food.find((food) => food.id == id) ?? new Food();
+  //     })
+  //   );
+  // }
+
   getFoodById(id: string) {
-    return this.getAllFood().pipe(
-      map((food) => {
-        return food.find((food) => food.id == id) ?? new Food();
-      })
-    );
+    return this.http.get<Food>(`http://localhost:4000/foodItems/food/${id}`);
   }
 }
