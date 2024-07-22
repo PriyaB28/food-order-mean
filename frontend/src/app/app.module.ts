@@ -14,11 +14,14 @@ import { FooterComponent } from './components/partials/footer/footer.component';
 import { FoodDetailComponent } from './components/pages/food-detail/food-detail.component';
 import { CartPageComponent } from './components/pages/cart-page/cart-page.component';
 import { NotFoundComponent } from './components/partials/not-found/not-found.component';
-import { HttpClientModule } from  '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from  '@angular/common/http';
 import { NgxMasonryModule } from 'ngx-masonry';
 import { LoginComponent } from './components/pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { RegisterComponent } from './components/pages/register/register.component';
+import { LoadingComponent } from './components/partials/loading/loading.component';
+import { LoadingInterceptor } from './shared/iterceptors/loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,8 @@ import { ToastrModule } from 'ngx-toastr';
     CartPageComponent,
     NotFoundComponent,
     LoginComponent,
+    RegisterComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,12 +48,12 @@ import { ToastrModule } from 'ngx-toastr';
     NgxMasonryModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
-      timeOut: 10000,
+      timeOut: 3000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     })
   ],
-  providers: [],
+  providers: [{ provide:HTTP_INTERCEPTORS,useClass:LoadingInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

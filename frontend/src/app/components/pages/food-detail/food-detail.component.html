@@ -1,10 +1,10 @@
 
-<app-not-found [visible]="!foodDetail.id " [notFoundMessage]="'No Detail Found'" 
+<app-not-found [visible]="!foodId " [notFoundMessage]="'No Detail Found'" 
     [resetLinkText]="'Go To Homepage'" [resetLink]="'/'" ></app-not-found>
-<section class="section wrapper wrapper-section" *ngIf="foodDetail.id">
+<section class="section wrapper wrapper-section" *ngIf="foodId">
     <div class="container wrapper-column">
        <div class="wrapper-bgimage">
-          <img src="{{foodDetail.imageUrl}}"  height="100px" class="wrapper-image" alt="product">
+          <img [src]="foodDetail.imageUrl"  height="100px" class="wrapper-image" alt="product">
        </div>
        <div class="wrapper-content">
           <div class="wrapper-inform">

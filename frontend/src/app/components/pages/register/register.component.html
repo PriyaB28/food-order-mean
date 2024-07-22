@@ -1,0 +1,89 @@
+<div class="background">
+    <div class="login-container">
+      <div class="login-form">
+        <form [formGroup]="registerForm" (ngSubmit)="onRegister()" action="">
+          <input
+            type="text"
+            placeholder="Name"
+            class="input-field"
+            formControlName="name"
+          />
+          <span
+            class="text-small text-danger"
+            *ngIf="registerFormControl['name'].hasError('required') && registerFormControl['name'].touched"
+          >
+            Name field is required</span
+          >
+          <span class="text-small text-danger" *ngIf="registerFormControl['name'].hasError('pattern')">
+            Please enter valid name</span
+          >
+          <input
+            type="text"
+            placeholder="Email"
+            class="input-field"
+            formControlName="email"
+          />
+          <span
+            class="text-small text-danger"
+            *ngIf="registerFormControl['email'].hasError('required') && registerFormControl['email'].touched"
+          >
+            Email field is required</span
+          >
+          <span class="text-small text-danger" *ngIf="registerFormControl['email'].hasError('email')">
+            Please enter valid email</span
+          >
+          <input
+            type="password"
+            placeholder="Password"
+            class="input-field"
+            formControlName="password"
+          />
+          <span
+            class="text-small text-danger"
+            *ngIf="registerFormControl['password'].hasError('required') && registerFormControl['password'].touched"
+          >
+            Password field is required</span
+          >
+          <span
+            class="text-small text-danger"
+            *ngIf="registerFormControl['password'].hasError('minlength')"
+          >
+            Please enter valid password</span
+          >
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            class="input-field"
+            formControlName="confirmPassword"
+          />
+          <span
+            class="text-small text-danger"
+            *ngIf="registerFormControl['confirmPassword'].hasError('required') && registerFormControl['confirmPassword'].touched"
+          >
+            Confirm Password field is required</span
+          >
+          <span
+            class="text-small text-danger"
+            *ngIf="registerFormControl['confirmPassword'].hasError('minlength')"
+          >
+            Please enter valid Confirm Password</span
+          >
+          <span
+            class="text-small text-danger"
+            *ngIf="registerFormControl['confirmPassword'].hasError('notmatched')"
+          >
+            Password and Confirm Password does not match</span
+          >
+          <button
+            type="submit"
+            class="login-button"
+            [disabled]="!registerForm.valid"
+          >
+            Register
+          </button>
+          <button type="button" class="register-button" routerLink="/login">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

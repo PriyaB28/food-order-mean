@@ -14,8 +14,13 @@ export class FoodService {
 
   getAllFood() {
     let URL = 'http://localhost:4000/foodItems/foods';
-    return this.http.get<Food[]>(URL);
+    return this.http.get<Food[]>(URL).pipe(
+      map((data: any[]) => data.map(item => {
+        return { ...item, id: item._id };  // map _id to id
+      }))
+    );
   }
+
 
   getFoodBySearchTerm(term: string) {
     return this.getAllFood().pipe(
@@ -36,6 +41,6 @@ export class FoodService {
   // }
 
   getFoodById(id: string) {
-    return this.http.get<Food>(`http://localhost:4000/foodItems/food/${id}`);
+    return this.http.get<Food>(`http://localhost:4000/foodItems/foods/${id}`)
   }
 }

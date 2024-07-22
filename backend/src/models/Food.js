@@ -15,5 +15,11 @@ const foodSchema = new mongoose.Schema({
   desc: String,
 });
 
+// foodSchema.virtual('idd').get(function() {
+//   return this._id.toHexString();
+// });
+// foodSchema.set('toJSON', {
+//   virtuals: true,
+// });
 const foodModel = mongoose.model("food", foodSchema);
 module.exports = foodModel;

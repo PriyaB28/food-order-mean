@@ -3,7 +3,7 @@ const foodModel = require("../models/Food.js");
 class FoodController {
   async getAllFoods(req, res) {
     try {
-      const items = await foodModel.find().exec();
+      const items = await foodModel.find();
       if (!items || items.length === 0) {
         return res.status(404).send({ message: "No foods found" });
       }

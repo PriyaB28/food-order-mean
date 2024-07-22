@@ -26,7 +26,13 @@ export class FoodDetailComponent {
       this.foodService.getFoodById(this.foodId).subscribe((detail) => {
         this.foodDetail = detail;
       });
+    }else{
+      this.foodDetail = new Food()
     }
+  }
+
+  ngOnInit(){
+    
   }
 
   addToCart(food: Food) {
