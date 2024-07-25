@@ -41,7 +41,7 @@
            <p class="text-base font-medium">Total:</p>
            <p class="text-medium font-semi">${{cart.totalPrice}}</p>
         </div>
-        <button class="btn btn-darken" disabled>
+        <button class="btn btn-darken" [disabled]="!cart" routerLink="/checkout">
            Checkout <i class="bx bx-chevron-right"></i>
         </button>
      </div>

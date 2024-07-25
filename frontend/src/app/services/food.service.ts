@@ -12,6 +12,10 @@ export class FoodService {
   http: HttpClient = inject(HttpClient);
   constructor() {}
 
+  hideHeader(){
+    this.isSubpage.next(true);
+  }
+
   getAllFood() {
     let URL = 'http://localhost:4000/foodItems/foods';
     return this.http.get<Food[]>(URL).pipe(

@@ -6,6 +6,7 @@ import { FoodDetailComponent } from './components/pages/food-detail/food-detail.
 import { CartPageComponent } from './components/pages/cart-page/cart-page.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { RegisterComponent } from './components/pages/register/register.component';
+import { CheckoutPageComponent } from './components/pages/checkout-page/checkout-page.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,11 @@ const routes: Routes = [
   {
     path:"register",
     component:RegisterComponent
+  }
+  ,
+  {
+    path:"checkout",
+    component:CheckoutPageComponent
   }
 ];
 

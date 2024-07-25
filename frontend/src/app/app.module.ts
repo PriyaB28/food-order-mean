@@ -22,6 +22,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { RegisterComponent } from './components/pages/register/register.component';
 import { LoadingComponent } from './components/partials/loading/loading.component';
 import { LoadingInterceptor } from './shared/iterceptors/loading.interceptor';
+import { CheckoutPageComponent } from './components/pages/checkout-page/checkout-page.component';
+import { MapComponent } from './components/partials/map/map.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { LoadingInterceptor } from './shared/iterceptors/loading.interceptor';
     LoginComponent,
     RegisterComponent,
     LoadingComponent,
+    CheckoutPageComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,

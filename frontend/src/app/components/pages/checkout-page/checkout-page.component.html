@@ -1,0 +1,153 @@
+<main class="container-fluid ">
+  <section class="checkout">
+    <header>
+      <h1>Checkout</h1>
+      <p>by Credit Card</p>
+    </header>
+    <form [formGroup]="checkoutForm" (ngSubmit)="createOrder()">
+      <div class="input-group">
+        <div class="label">
+          <label for="name">Full Name</label>
+        </div>
+        <div class="input">
+          <input
+            type="text"
+            id="name"
+            placeholder="Jane Doe"
+            formControlName="name"
+            required
+          />
+        </div>
+      </div>
+      <div class="input-group">
+        <div class="label">
+          <label for="address">Address</label>
+        </div>
+        <div class="input">
+          <input
+            type="text"
+            id="address"
+            placeholder="Jane Doe"
+            formControlName="address"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="input-group">
+        <button>Charge Credit Card</button>
+      </div>
+    </form>
+  </section>
+  <section class="map">
+	<app-map></app-map>
+    <!-- <div class="cart-item">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0814/1617/products/IMG_0716_1024x1024.png"
+        class="image"
+      />
+      <p class="title">Lorem ipsum dolor <span>2.5cm &times; 2.8cm</span></p>
+      <p class="currency">CHF</p>
+      <p class="price">4.25</p>
+    </div>
+    <div class="cart-item">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0814/1617/products/IMG_2760_1024x1024.png"
+        class="image"
+      />
+      <p class="title">Sit amet <span>2.4cm &times; 2.8cm</span></p>
+      <p class="currency">CHF</p>
+      <p class="price">4.25</p>
+    </div>
+    <div class="cart-item">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0814/1617/products/IMG_2766_1024x1024.png"
+        class="image"
+      />
+      <p class="title">
+        Consectetur adipiscing elit <span>2.7cm &times; 2.3cm</span>
+      </p>
+      <p class="currency">CHF</p>
+      <p class="price">5.60</p>
+    </div>
+    <div class="shipping">
+      <p class="title">Shipping</p>
+      <p class="currency">CHF</p>
+      <p class="price">2.70</p>
+    </div>
+    <div class="total">
+      <p class="title">Total</p>
+      <p class="currency">CHF</p>
+      <p class="price">16.80</p>
+    </div> -->
+  </section>
+  <section class="cart">
+	<h3>Order Items</h3>
+	<div class="row mb-4 font-weight-bold mt-4 border-bottom border-warning">
+		<div class="col-md-4 text-center ">ITEM</div>
+		<div class="col-md-4 text-center "></div>
+		<div class="col-md-2">QUANTITY</div>
+		<div class="col-md-2 text-right">PRICE</div>
+	</div>
+    <div class="cart-item" *ngFor="let item of order.items">
+      <img
+        [src]="item.food.imageUrl"
+        class="image"
+      />
+      <p class="title">{{item.food.name}} </p>
+      <p class="price">{{item.quantity}}</p>
+      <p class="price">{{item.price | currency:'USD'}}</p>
+    </div>
+    <!-- <div class="shipping">
+      <p class="title">Shipping</p>
+      <p class="currency">CHF</p>
+      <p class="price">2.70</p>
+    </div> -->
+    <div class="total">
+      <p class="title">Total</p>
+      <p class="currency">USD</p>
+      <p class="price">{{order.totalPrice | currency:'USD'}}</p>
+    </div>
+  </section>
+  <!-- <section class="checkout">
+		<header>
+			<h1>Checkout</h1>
+			<p>by Credit Card</p>
+		</header>
+		<form action="post">
+			<div class="input-group">
+				<div class="label">
+					<label for="name">Full Name</label>
+				</div>
+				<div class="input">
+					<input type="text" id="name" placeholder="Jane Doe" required>
+				</div>
+			</div>
+			<div class="input-group">
+				<div class="label">
+					<label for="number">Card Number</label>
+				</div>
+				<div class="input number">
+					<input type="number" min="1000" max="9999" id="number" placeholder="0000" required><span>&ndash;</span><input type="number" min="1000" max="9999" placeholder="0000" required><span>&ndash;</span><input type="number" min="1000" max="9999" placeholder="0000" required><span>&ndash;</span><input type="number" min="1000" max="9999" placeholder="0000" required>
+				</div>
+			</div>
+			<div class="input-group">
+				<div class="label">
+					<label for="cvc">Security Code</label>
+				</div>
+				<div class="input">
+					<input type="number" id="cvc" placeholder="000" min="001" max="999" step="1" required>
+				</div>
+			</div>
+			<div class="input-group">
+				<div class="label">
+					<label for="expire-month">Expiry</label>
+				</div>
+				<div class="input">
+					<input type="month" id="expire-month" required>
+				</div>
+				<button>Charge Credit Card</button>
+			</div>
+		</form>
+	</section> -->
+</main>
