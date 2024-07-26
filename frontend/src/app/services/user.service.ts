@@ -98,6 +98,6 @@ export class UserService {
     this.userSubject.next(new User());
     localStorage.removeItem(USER_KEY);
     this.toastrService.success('User Logged out');
-    // window.location.reload();
+    window.location.reload();
   }
 }

@@ -1,5 +1,17 @@
 const mongoose = require("mongoose");
 
+  const Food={
+  id:String,
+  name:String,
+  price:Number,
+  tags: [String],
+  favorite:Boolean,
+  stars: Number,
+  imageUrl: String,
+  origins: [String],
+  cookTime:String,
+  desc:String
+}
 
 const foodSchema = new mongoose.Schema({
   id: String,
@@ -22,4 +34,4 @@ const foodSchema = new mongoose.Schema({
 //   virtuals: true,
 // });
 const foodModel = mongoose.model("food", foodSchema);
-module.exports = foodModel;
+module.exports = {foodModel,Food,foodSchema};
