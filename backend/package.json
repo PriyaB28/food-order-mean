@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cd src && nodemon index.js",
-    "build": "npm install"
+    "build": "npm install && tsc"
   },
   "author": "Priya",
   "license": "ISC",
