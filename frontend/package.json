@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start":  "npm install --force && ng build --configuration production",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -23,6 +23,7 @@
     "leaflet": "^1.9.4",
     "ngx-masonry": "^14.0.1",
     "ngx-owl-carousel-o": "^16.0.0",
+    "ngx-paypal": "^11.0.0",
     "ngx-toastr": "^19.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
