@@ -7,7 +7,7 @@ const foodModel = require("./models/Food");
 const userModel = require("./models/User");
 const foodRouter = require("./routes/food.routes.js");
 const loginRouter = require("./routes/login.routes.js");
-const orderRouter = require("./routes/order.routes.js");
+// const orderRouter = require("./routes/order.routes.js");
 
 dotenv.config({ path: "../.env" });
 
@@ -117,7 +117,7 @@ app.get("/seed", async (req, res) => {
 });
 app.use("/foodItems", foodRouter);
 app.use("/api/user", loginRouter);
-app.use("/api/order", orderRouter);
+// app.use("/api/order", orderRouter);
 app.listen(Port, () => {
     console.log("server started :" + Port);
 });
