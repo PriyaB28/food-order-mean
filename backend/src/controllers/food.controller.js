@@ -1,4 +1,4 @@
-const foodModel = require("../models/Food.js");
+const {foodModel} = require("../models/Food");
 
 class FoodController {
   async getAllFoods(req, res) {
@@ -10,7 +10,7 @@ class FoodController {
       return res.send(items);
     } catch (error) {
       console.error(error);
-      return res.status(500).send({ message: "Internal Server Error" });
+      return res.status(500).send({ message: error.message });
     }
   }
   async getFoodById(req, res) {
