@@ -7,6 +7,7 @@ const foodModel = require("./models/Food");
 const userModel = require("./models/User");
 const foodRouter = require("./routes/food.routes");
 const loginRouter = require("./routes/login.routes");
+const orderRouter = require("./routes/order.routes");
 
 dotenv.config({ path: "../.env" });
 
@@ -15,12 +16,12 @@ app.use(express.json());
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:4200"],
+    // origin: ["http://localhost:4200"],
+    origin: ["https://food-frontend-92qe.onrender.com"],
   })
 );
 
 app.get("/", async (req, res) => {
-  console.log("hello");
   res.send("hello");
 });
 
@@ -112,11 +113,11 @@ app.get("/seed", async (req, res) => {
     },
   ]);
 
-  console.log(result);
   res.send("done");
 });
 app.use("/foodItems", foodRouter);
 app.use("/api/user", loginRouter);
+app.use("/api/order", orderRouter);
 app.listen(Port, () => {
     console.log("server started :" + Port);
 });
