@@ -5,9 +5,9 @@ const cors = require("cors");
 const dbConnection = require("./config/db");
 const foodModel = require("./models/Food");
 const userModel = require("./models/User");
-const foodRouter = require("./routes/food.routes");
-const loginRouter = require("./routes/login.routes");
-const orderRouter = require("./routes/order.routes");
+const foodRouter = require("./routes/food.routes.js");
+const loginRouter = require("./routes/login.routes.js");
+const orderRouter = require("./routes/order.routes.js");
 
 dotenv.config({ path: "../.env" });
 
