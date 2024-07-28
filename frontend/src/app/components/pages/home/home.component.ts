@@ -64,6 +64,6 @@ export class HomeComponent {
       return;
     }
     this.Foods = this.ActualFoods.filter((item) => item.category == category);
-    console.log(this.Foods);
+    // console.log(this.Foods);
   }
 }

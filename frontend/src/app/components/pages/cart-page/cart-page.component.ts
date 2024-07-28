@@ -16,7 +16,6 @@ export class CartPageComponent {
   constructor() {
     this.foodService.isSubpage.next(true);
     this.cartService.getCartObservable().subscribe((foods:Cart) => {
-      console.log(foods);
       
       this.cart = foods;
     });

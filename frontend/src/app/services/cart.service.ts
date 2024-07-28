@@ -35,13 +35,10 @@ export class CartService {
     if (!cartItems) {
       return;
     }
-    console.log(cartItems);
     
     cartItems.quantity = quantity;
-    console.log(quantity);
     
     cartItems.price = quantity * cartItems.food.price;
-    console.log(cartItems);
     
     this.setCartToLocalStorage()
   }

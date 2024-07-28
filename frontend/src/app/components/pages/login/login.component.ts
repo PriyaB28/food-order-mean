@@ -35,7 +35,6 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    console.log(this.loginForm.value);
     this.userService.login(this.loginForm.value).pipe(
       catchError((error: any) => {
         // Handle the error here

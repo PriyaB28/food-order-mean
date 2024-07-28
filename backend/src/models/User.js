@@ -1,9 +1,22 @@
 const mongoose = require("mongoose");
-const UserSchema = new mongoose.Schema({
+const mongooseLeanVirtuals = require("mongoose-lean-virtuals");
+
+const UserSchema = new mongoose.Schema(
+  {
     name: String,
     email: String,
     password: String,
-    isAdmin:Boolean
-  });
-  
-  module.exports = mongoose.model('user',UserSchema)
+    isAdmin: Boolean,
+  },
+  {
+    toJSON: {
+      virtuals: true,
+    },
+    toObject: {
+      virtuals: true,
+    },
+  }
+);
+UserSchema.plugin(mongooseLeanVirtuals)
+
+module.exports = mongoose.model("user", UserSchema);

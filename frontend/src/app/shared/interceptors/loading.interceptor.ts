@@ -14,6 +14,7 @@ let pendingRequests = 0;
 export class LoadingInterceptor implements HttpInterceptor {
   constructor() {}
   loadingService: LoadingService = inject(LoadingService);
+  
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler

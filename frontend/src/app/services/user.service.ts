@@ -29,7 +29,7 @@ export class UserService {
       tap({
         next: (user) => {
           this.userSubject.next(user);
-          this.setUserToLocalStorage(user);
+          this.setUserToLocalStorage(user);          
           this.toastrService.success('welcome', 'User Logged in ' + user.name);
         },
         error: (err) => {

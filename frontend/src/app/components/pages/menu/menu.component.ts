@@ -26,7 +26,6 @@ export class MenuComponent {
     this.foodService.isSubpage.next(true);
 
     this.activatedRoute.params.subscribe((params) => {
-      console.log();
 
       if (params['searchTerm']) {
         let food: Food[] = [];
@@ -58,6 +57,6 @@ export class MenuComponent {
       return;
     }
     this.Foods = this.ActualFoods.filter((item) => item.category == category);
-    console.log(this.Foods);
+    // console.log(this.Foods);
   }
 }

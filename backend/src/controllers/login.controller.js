@@ -1,8 +1,10 @@
-const userModel = require("../models/User");
+const userModel = require("../models/User.js");
 const jwt = require("jsonwebtoken");
-const secretKey = process.env.SECRET_KEY || "a-secure-random-key";
 const bcrypt = require("bcrypt");
+const dotenv = require("dotenv");
+dotenv.config({ path: "../.env" });
 
+const secretKey = process.env.SECRET_KEY
 /**
  * Generates a JSON Web Token (JWT) response for a given user detail.
  *
@@ -12,6 +14,7 @@ const bcrypt = require("bcrypt");
 const generateTokenResponse = (userDetail) => {
   const token = jwt.sign(
     {
+      user_id:userDetail.id,
       email: userDetail.email,
       isAdmin: userDetail.isAdmin,
     },
@@ -41,7 +44,7 @@ class LoginController {
 
       const user = await userModel
         .findOne({ email: email })
-        .lean();
+        .lean({ virtuals: true });
       if (!user) {
         return res.status(401).json({ message: "Invalid email or password" });
       }

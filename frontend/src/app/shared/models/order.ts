@@ -5,7 +5,7 @@ export class Order{
     items!:CartItem[];
     totalPrice!:number;
     name!:string;
-    addressLatLng?:LatLng;
+    // addressLatLng?:LatLng;
     paymentId!:string;
     createdAt!:string;
     status!:string
