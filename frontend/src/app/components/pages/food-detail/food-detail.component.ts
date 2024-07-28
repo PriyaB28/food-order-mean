@@ -17,7 +17,7 @@ export class FoodDetailComponent {
   foodDetail!: Food;
   cartService: CartService = inject(CartService);
   constructor() {
-    this.foodService.isSubpage.next(true);
+    this.foodService.hideHeader()
     this.activatedRoute.params.subscribe((params) => {
       this.foodId = params['id'];
     });

@@ -14,7 +14,7 @@ export class CartPageComponent {
   cartService: CartService = inject(CartService);
   cart!: Cart
   constructor() {
-    this.foodService.isSubpage.next(true);
+    this.foodService.hideHeader()
     this.cartService.getCartObservable().subscribe((foods:Cart) => {
       
       this.cart = foods;

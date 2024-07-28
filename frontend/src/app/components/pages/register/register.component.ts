@@ -25,7 +25,7 @@ private  userService:UserService = inject(UserService)
 toastrService = inject(ToastrService);
 route: Router = inject(Router);
   constructor() {
-    this.foodService.isSubpage.next(true);
+    this.foodService.hideHeader()
   }
 
   ngOnInit() {

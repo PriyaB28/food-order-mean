@@ -23,7 +23,7 @@ export class MenuComponent {
   };
 
   constructor() {
-    this.foodService.isSubpage.next(true);
+    this.foodService.hideHeader()
 
     this.activatedRoute.params.subscribe((params) => {
 

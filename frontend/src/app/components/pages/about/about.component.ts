@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FoodService } from 'src/app/services/food.service';
 
 @Component({
   selector: 'app-about',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent {
-
+  foodService: FoodService = inject(FoodService);
+  constructor() {
+    this.foodService.hideHeader()
+  }
 }

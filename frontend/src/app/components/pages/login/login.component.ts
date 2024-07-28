@@ -20,7 +20,7 @@ export class LoginComponent {
  
 
   constructor() {
-    this.foodService.isSubpage.next(true);
+    this.foodService.hideHeader()
   }
 
   ngOnInit() {
