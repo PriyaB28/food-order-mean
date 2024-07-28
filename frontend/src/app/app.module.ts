@@ -28,6 +28,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { PaymentPageComponent } from './components/pages/payment-page/payment-page.component';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { PaypalButtonsComponent } from './components/partials/paypal-buttons/paypal-buttons.component';
+import { AboutComponent } from './components/pages/about/about.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { PaypalButtonsComponent } from './components/partials/paypal-buttons/pay
     MapComponent,
     PaymentPageComponent,
     PaypalButtonsComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
