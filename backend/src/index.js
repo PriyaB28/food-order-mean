@@ -115,7 +115,7 @@ app.get("/seed", async (req, res) => {
 
   res.send("done");
 });
-app.use("/foodItems", foodRouter);
+app.use("/api/foodItems", foodRouter);
 app.use("/api/user", loginRouter);
 app.use("/api/order", orderRouter);
 app.listen(Port, () => {

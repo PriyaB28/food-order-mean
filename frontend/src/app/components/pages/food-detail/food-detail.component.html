@@ -1,78 +1,101 @@
-
-<app-not-found [visible]="!foodId " [notFoundMessage]="'No Detail Found'" 
-    [resetLinkText]="'Go To Homepage'" [resetLink]="'/'" ></app-not-found>
-<section class="section wrapper wrapper-section" *ngIf="foodId">
-    <div class="container wrapper-column">
-       <div class="wrapper-bgimage">
-          <img [src]="foodDetail.imageUrl"  height="100px" class="wrapper-image" alt="product">
-       </div>
-       <div class="wrapper-content">
-          <div class="wrapper-inform">
-             <span class="badge badge-darken">{{foodDetail.category}}</span>
-             <h1 class="display-medium font-bold">{{foodDetail.name}}</h1>
-             <p class="text-base font-normal">
-                {{foodDetail.desc}}
-             </p>
-          </div>
-          <div class="wrapper-detail-star">
-            <div class="star-rating">
-               <star-rating  [starType]="'svg'" [showHalfStars]="true" [rating]="foodDetail.stars"></star-rating> {{foodDetail.stars}}
-             </div>
-          </div>
-          <ul class="sizes-lists">
-            <i class="fa fa-map-marker"></i>
-            <li class="sizes-item "  *ngFor="let origin of foodDetail.origins">{{origin}}</li>
-            <!-- <li class="sizes-item "  *ngFor="let tag of foodDetail.tags">{{tag}}</li> -->
-         </ul>
-          <ul class="sizes-lists-tags">
-            <li class="sizes-item "  *ngFor="let tag of foodDetail.tags">{{tag}}</li>
-         </ul>
-         <div class="cook-time">
-            <span class="text-base font-medium">Time to cook about <b>{{foodDetail.cookTime}}</b> mins</span> 
-         </div>
-                <h2 class="font-medium">Price: ${{foodDetail.price}}</h2>
-         
-          <div class="wrapper-action">
-             <button class="btn btn-darken" (click)="addToCart(foodDetail)">Add to Bag</button>
-             <button class="btn btn-default" disabled>
-                <i class="fa fa-heart"></i>
-             </button>
-          </div>
-       </div>
+<app-not-found
+  [visible]="!foodId"
+  [notFoundMessage]="'No Detail Found'"
+  [resetLinkText]="'Go To Homepage'"
+  [resetLink]="'/'"
+></app-not-found>
+<section
+  class="section wrapper wrapper-section"
+  *ngIf="foodId && foodDetail?.name"
+>
+  <div class="container wrapper-column">
+    <div class="wrapper-bgimage">
+      <img
+        src="{{ foodDetail.imageUrl }}"
+        height="100px"
+        class="wrapper-image"
+        alt="product"
+      />
     </div>
- </section>
-
-   <!-- about section -->
-
-   <section class="about_section layout_padding">
-      <div class="container  ">
-  
-        <div class="row">
-          <div class="col-md-6 ">
-            <div class="img-box">
-              <img src="assets/images/about-img.png" >
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="detail-box">
-              <div class="heading_container">
-                <h2>
-                  We Are Feane
-                </h2>
-              </div>
-              <p>
-                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-                in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-                are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-                the middle of text. All
-              </p>
-              <!-- <a href="">
-                Read More
-              </a> -->
-            </div>
-          </div>
+    <div class="wrapper-content">
+      <div class="wrapper-inform">
+        <span class="badge badge-darken">{{ foodDetail.category }}</span>
+        <h1 class="display-medium font-bold">{{ foodDetail.name }}</h1>
+        <p class="text-base font-normal">
+          {{ foodDetail.desc }}
+        </p>
+      </div>
+      <div class="wrapper-detail-star">
+        <div class="star-rating">
+          <star-rating
+            [starType]="'svg'"
+            [showHalfStars]="true"
+            [rating]="foodDetail.stars"
+          ></star-rating>
+          {{ foodDetail.stars }}
         </div>
       </div>
-    </section>
-  
-    <!-- end about section -->
+      <ul class="sizes-lists">
+        <i class="fa fa-map-marker"></i>
+        <li class="sizes-item" *ngFor="let origin of foodDetail.origins">
+          {{ origin }}
+        </li>
+        <!-- <li class="sizes-item "  *ngFor="let tag of foodDetail.tags">{{tag}}</li> -->
+      </ul>
+      <ul class="sizes-lists-tags">
+        <li class="sizes-item" *ngFor="let tag of foodDetail.tags">
+          {{ tag }}
+        </li>
+      </ul>
+      <div class="cook-time">
+        <span class="text-base font-medium"
+          >Time to cook about <b>{{ foodDetail.cookTime }}</b> mins</span
+        >
+      </div>
+      <h2 class="font-medium">Price: ${{ foodDetail.price }}</h2>
+
+      <div class="wrapper-action">
+        <button class="btn btn-darken" (click)="addToCart(foodDetail)">
+          Add to Bag
+        </button>
+        <button class="btn btn-default" disabled>
+          <i class="fa fa-heart"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- about section -->
+
+<section class="about_section layout_padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="img-box">
+          <img src="assets/images/about-img.png" />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="detail-box">
+          <div class="heading_container">
+            <h2>We Are Feane</h2>
+          </div>
+          <p>
+            There are many variations of passages of Lorem Ipsum available, but
+            the majority have suffered alteration in some form, by injected
+            humour, or randomised words which don't look even slightly
+            believable. If you are going to use a passage of Lorem Ipsum, you
+            need to be sure there isn't anything embarrassing hidden in the
+            middle of text. All
+          </p>
+          <!-- <a href="">
+                Read More
+              </a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- end about section -->

@@ -81,10 +81,11 @@
           *ngFor="let item of Foods"
           #masonry
         >
+        
           <div class="box">
             <a routerLink="/food-detail/{{ item.id }}">
               <div class="img-box">
-                <img [src]="item.imageUrl" alt="" />
+                <img src="{{item.imageUrl}}" alt="" />
               </div>
               <div class="detail-box">
                 <h5>
@@ -122,9 +123,9 @@
         </ngx-masonry-item>
       </ngx-masonry>
     </div>
-    <div class="btn-box">
+    <!-- <div class="btn-box">
       <a href=""> View More </a>
-    </div>
+    </div> -->
   </div>
 </section>
 

@@ -25,7 +25,7 @@ class OrderController {
       res.send(newOrder);
     } catch (error) {
       console.error(error);
-      return res.status(500).send({ message: "Internal Server Error" });
+      return res.status(500).send({ message: error.message });
     }
   }
 

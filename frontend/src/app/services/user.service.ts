@@ -3,7 +3,11 @@ import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, Observable, tap, throwError } from 'rxjs';
 import { User } from '../shared/models/user';
 import { IUserLogin } from '../shared/interfaces/user-login';
-import { USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
+import {
+  USER_LOGIN_URL,
+  USER_REGISTER_URL,
+  USER_REFRESH_TOKEN,
+} from '../shared/constants/urls';
 import { ToastrService } from 'ngx-toastr';
 import { IUserRegister } from '../shared/interfaces/user-register';
 const USER_KEY = 'user';
@@ -20,8 +24,8 @@ export class UserService {
     this.userObservable = this.userSubject.asObservable();
   }
 
-  getUser():User{
-   return this.userSubject.value
+  getUser(): User {
+    return this.userSubject.value;
   }
 
   login(userlogin: IUserLogin) {
@@ -29,7 +33,7 @@ export class UserService {
       tap({
         next: (user) => {
           this.userSubject.next(user);
-          this.setUserToLocalStorage(user);          
+          this.setUserToLocalStorage(user);
           this.toastrService.success('welcome', 'User Logged in ' + user.name);
         },
         error: (err) => {
@@ -99,5 +103,16 @@ export class UserService {
     localStorage.removeItem(USER_KEY);
     this.toastrService.success('User Logged out');
     window.location.reload();
+  }
+
+  refreshToken() {
+    return this.http.get<User>(USER_REFRESH_TOKEN).pipe(
+      tap({
+        next: (user) => {
+          this.userSubject.next(user);
+          this.setUserToLocalStorage(user);
+        },
+      })
+    );
   }
 }

@@ -29,13 +29,14 @@ export class FoodDetailComponent {
     }else{
       this.foodDetail = new Food()
     }
+    
   }
 
   ngOnInit(){
     
   }
 
-  addToCart(food: Food) {
+  addToCart(food: Food) {  
     this.cartService.addToCart(food);
     this.route.navigateByUrl('/cart-page');
   }

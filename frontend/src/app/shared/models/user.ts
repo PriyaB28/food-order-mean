@@ -4,4 +4,5 @@ export class User {
     password!: string;
     isAdmin!:boolean;
     token!:string
+    refreshToken!:string
 }

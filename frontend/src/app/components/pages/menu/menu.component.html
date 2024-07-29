@@ -6,7 +6,7 @@
       <h2>Our Menu</h2>
     </div>
     <app-search></app-search>
-    <ul class="filters_menu">
+    <ul class="filters_menu" *ngIf="!isSearchTerm">
       <li class="filter" (click)="filters('app')">All</li>
       <li (click)="filters('burger')">Burger</li>
       <li (click)="filters('pizza')">Pizza</li>
@@ -63,9 +63,9 @@
         </ngx-masonry-item>
       </ngx-masonry>
     </div>
-    <div class="btn-box">
+    <!-- <div class="btn-box">
       <a href=""> View More </a>
-    </div>
+    </div> -->
   </div>
 </section>
 

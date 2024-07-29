@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const dotenv = require("dotenv");
 dotenv.config({ path: "../.env" });
 
-const secretKey = process.env.SECRET_KEY
+const secretKey = process.env.SECRET_KEY;
 /**
  * Generates a JSON Web Token (JWT) response for a given user detail.
  *
@@ -14,17 +14,26 @@ const secretKey = process.env.SECRET_KEY
 const generateTokenResponse = (userDetail) => {
   const token = jwt.sign(
     {
-      user_id:userDetail.id,
+      user_id: userDetail.id,
       email: userDetail.email,
       isAdmin: userDetail.isAdmin,
     },
     secretKey,
     {
-      expiresIn: "30m",
+      expiresIn: "1m",
     }
   );
+  const refreshToken = jwt.sign(
+    {
+      user_id: userDetail.id,
+      email: userDetail.email,
+      isAdmin: userDetail.isAdmin,
+    },
+    secretKey,
+    { expiresIn: "1d" }
+  );
 
-  return token;
+  return { token, refreshToken };
 };
 class LoginController {
   /**
@@ -48,16 +57,14 @@ class LoginController {
       if (!user) {
         return res.status(401).json({ message: "Invalid email or password" });
       }
-      const isValidPassword = await bcrypt.compare(
-        password,
-        user.password
-      );
+      const isValidPassword = await bcrypt.compare(password, user.password);
       if (!isValidPassword) {
         return res.status(401).json({ message: "Invalid password" });
       }
 
       const token = await generateTokenResponse(user);
-      user.token = token;
+      user.token = token.token;
+      user.refreshToken = token.refreshToken;
       res.send(user);
     } catch (error) {
       console.log(error);
@@ -111,6 +118,39 @@ class LoginController {
     } catch (error) {
       console.log(error);
       res.status(500).json({ message: "Internal Server Error" });
+    }
+  }
+
+  async refreshToken(req, res) {
+    try {
+      const refreshToken = req.headers.refreshtoken;
+      if (!refreshToken) {
+        return res
+          .status(401)
+          .send("Access Denied. No refresh token provided.");
+      }
+      const decoded = jwt.verify(refreshToken, secretKey);
+
+      
+      const accessToken = jwt.sign( {
+        user_id: decoded.user_id,
+        email: decoded.email,
+        isAdmin: decoded.isAdmin,
+      }, secretKey, {
+        expiresIn: "1m",
+      });
+      const user = await userModel
+        .findOne({ email: decoded.email })
+        .lean({ virtuals: true });
+      if (!user) {
+        return res.status(401).json({ message: "Invalid email or password" });
+      }
+      user.token = accessToken;
+      user.refreshToken = refreshToken;
+      res.send(user);
+    } catch (err) {
+      console.log(err);
+      res.status(400).send(err.message);
     }
   }
 }

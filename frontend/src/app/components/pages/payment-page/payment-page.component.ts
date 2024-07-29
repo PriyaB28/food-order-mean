@@ -19,10 +19,7 @@ export class PaymentPageComponent {
   ngOnInit() {
     this.orderService.getNewOrderForCurrentUser().subscribe((order) => {
       this.order = order;
-      console.log(this.order);
-     
+      // console.log(this.order);
     });
   }
-
-
 }

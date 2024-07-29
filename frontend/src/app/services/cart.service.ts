@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Cart } from '../cart';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Food } from '../shared/models/food';
 import { CartItem } from '../cart-item';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -10,17 +11,21 @@ import { CartItem } from '../cart-item';
 export class CartService {
   private cart: Cart = this.getCartToLocalStorage() 
   private cartSubject = new BehaviorSubject<Cart>(this.cart);
+  route: Router = inject(Router);
   constructor() {}
 
-  addToCart(food: Food) {
+  addToCart(food: Food) {    
     let cartItems = this.cart.cartItems.filter(
       (item) => item.food.id == food.id
     );
+    
     if (cartItems.length > 0) {
       return;
     }
     this.cart.cartItems.push(new CartItem(food));
+    
     this.setCartToLocalStorage()
+    return this.cart
   }
 
   removeFromCart(food: Food) {

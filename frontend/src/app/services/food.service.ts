@@ -3,6 +3,7 @@ import { Food } from '../shared/models/food';
 import { Foods } from '../data';
 import { BehaviorSubject, filter, map, Observable, retry } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { GET_ALL_FOOD, FOOD_BY_ID } from '../shared/constants/urls';
 
 @Injectable({
   providedIn: 'root',
@@ -12,20 +13,20 @@ export class FoodService {
   http: HttpClient = inject(HttpClient);
   constructor() {}
 
-  hideHeader(){
+  hideHeader() {
     this.isSubpage.next(true);
   }
 
   getAllFood() {
-    // let URL = 'http://localhost:4000/foodItems/foods';
-    let URL = 'https://food-order-mean.onrender.com/foodItems/foods';
+    let URL = GET_ALL_FOOD;
     return this.http.get<Food[]>(URL).pipe(
-      map((data: any[]) => data.map(item => {
-        return { ...item, id: item._id };  // map _id to id
-      }))
+      map((data: any[]) =>
+        data.map((item) => {
+          return { ...item, id: item._id }; // map _id to id
+        })
+      )
     );
   }
-
 
   getFoodBySearchTerm(term: string) {
     return this.getAllFood().pipe(
@@ -46,7 +47,10 @@ export class FoodService {
   // }
 
   getFoodById(id: string) {
-    // return this.http.get<Food>(`http://localhost:4000/foodItems/foods/${id}`)
-    return this.http.get<Food>(`https://food-order-mean.onrender.com/foodItems/foods/${id}`)
+    return this.http.get<Food>(FOOD_BY_ID + id).pipe(
+      map((data: any) => {
+        return { ...data, id: data._id }; // map _id to id
+      })
+    );
   }
 }

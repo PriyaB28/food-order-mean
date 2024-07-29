@@ -15,6 +15,7 @@ export class MenuComponent {
   ActualFoods: Food[] = [];
   foodService: FoodService = inject(FoodService);
   activatedRoute: ActivatedRoute = inject(ActivatedRoute);
+  isSearchTerm:boolean = false
   options: NgxMasonryOptions = {
     gutter: 10,
     columnWidth: 200,
@@ -28,7 +29,7 @@ export class MenuComponent {
     this.activatedRoute.params.subscribe((params) => {
 
       if (params['searchTerm']) {
-        let food: Food[] = [];
+        this.isSearchTerm = true
         this.foodService
           .getFoodBySearchTerm(params['searchTerm'])
           .subscribe((foods) => {
