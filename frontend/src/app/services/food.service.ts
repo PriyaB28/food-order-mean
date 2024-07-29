@@ -17,7 +17,8 @@ export class FoodService {
   }
 
   getAllFood() {
-    let URL = 'http://localhost:4000/foodItems/foods';
+    // let URL = 'http://localhost:4000/foodItems/foods';
+    let URL = 'https://food-order-mean.onrender.com/foodItems/foods';
     return this.http.get<Food[]>(URL).pipe(
       map((data: any[]) => data.map(item => {
         return { ...item, id: item._id };  // map _id to id
@@ -45,6 +46,7 @@ export class FoodService {
   // }
 
   getFoodById(id: string) {
-    return this.http.get<Food>(`http://localhost:4000/foodItems/foods/${id}`)
+    // return this.http.get<Food>(`http://localhost:4000/foodItems/foods/${id}`)
+    return this.http.get<Food>(`https://food-order-mean.onrender.com/foodItems/foods/${id}`)
   }
 }
