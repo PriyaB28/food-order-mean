@@ -20,7 +20,7 @@ Welcome to the **Food Order MEAN Application**! This project is a full-stack web
 - Browse and search food items
 - Add items to cart
 - Place and track orders
-//- Admin dashboard to manage food items and orders
+<!--Admin dashboard to manage food items and orders-->
 
 ## Demo
 
