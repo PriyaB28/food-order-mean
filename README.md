@@ -24,7 +24,7 @@ Welcome to the **Food Order MEAN Application**! This project is a full-stack web
 
 ## Demo
 
-Check out a live demo of the application at [Demo Link](#). (Replace with actual demo URL if available.)
+Check out a live demo of the application at [Demo Link](https://food-frontend-92qe.onrender.com/). (Replace with actual demo URL if available.)
 
 ## Technologies Used
 
@@ -98,7 +98,7 @@ Follow these steps to set up the project on your local machine:
 - **Browse Food Items:** Navigate to the "Menu" section to view available food items.
 - **Add to Cart:** Use the "Add to Cart" button to add items.
 - **Place Order:** Go to the "Cart" and follow the steps to place your order.
-- **Admin Dashboard:** Access the admin dashboard to manage food items and view orders.
+<!--- **Admin Dashboard:** Access the admin dashboard to manage food items and view orders.-->
 
 ## Configuration
 
