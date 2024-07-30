@@ -17,16 +17,14 @@ export class CheckoutPageComponent {
   foodService: FoodService = inject(FoodService);
   cartService: CartService = inject(CartService);
   userService: UserService = inject(UserService);
-  orderService: OrderService = inject(OrderService)
+  orderService: OrderService = inject(OrderService);
   checkoutForm!: FormGroup;
   router: Router = inject(Router);
   constructor(private _fb: FormBuilder) {
     this.foodService.hideHeader();
-    const cart = this.cartService.getCart();
-    this.order.items = cart.cartItems;
-    this.order.totalPrice = cart.totalPrice;
-    this.order.totalPrice = cart.totalPrice;
-    
+    const { cartItems, totalPrice } = this.cartService.getCart();
+    this.order.items = cartItems;
+    this.order.totalPrice = totalPrice;
   }
 
   ngOnInit() {
@@ -41,13 +39,17 @@ export class CheckoutPageComponent {
     return this.checkoutForm.controls;
   }
 
-  createOrder(){
-    this.order.name = this.fc['name'].value
+  createOrder() {
+    const { name } = this.fc;
+    this.order.name = name.value;
     this.orderService.createOrder(this.order).subscribe({
       next: (res) => {
         console.log(res);
         this.router.navigateByUrl('/order-payment');
-      }
-    })
+      },
+      error: (err) => {
+        console.error(err);
+      },
+    });
   }
 }

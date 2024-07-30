@@ -8,10 +8,12 @@ import {
 } from '@angular/common/http';
 import { catchError, Observable, switchMap, throwError } from 'rxjs';
 import { UserService } from '../services/user.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   userService: UserService = inject(UserService);
+  toastrService: ToastrService = inject(ToastrService); // Inject ToastrService
   constructor() {}
 
   intercept(
@@ -46,19 +48,11 @@ export class AuthInterceptor implements HttpInterceptor {
           );
 
           if (isRefrsh) {
-            //  this.userService.refreshToken().subscribe(
-            //   (res) => {
-            //     console.log(res);
-            //      return next.handle(request.clone({
-            //       setHeaders: {
-            //         access_token: res.token,
-            //       },
-            //     }));
-            //     }
-            //  );
+          
             return this.userService.refreshToken().pipe(
               switchMap((res) => {
                 console.log(res);
+                this.toastrService.success('Token refreshed successfully');
                 const newRequest = request.clone({
                   setHeaders: {
                     access_token: res.token,

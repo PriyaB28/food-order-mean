@@ -119,6 +119,6 @@ app.use("/api/foodItems", foodRouter);
 app.use("/api/user", loginRouter);
 app.use("/api/order", orderRouter);
 app.listen(Port, () => {
-    console.log("server started :" + Port);
+  console.log("server started :" + Port);
 });
 dbConnection();
