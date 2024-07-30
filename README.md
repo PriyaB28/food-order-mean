@@ -30,11 +30,11 @@
     <li>Browse and search food items</li>
     <li>Add items to cart</li>
     <li>Place and track orders</li>
-    <li>Admin dashboard to manage food items and orders</li>
+<!--     <li>Admin dashboard to manage food items and orders</li> -->
 </ul>
 
 <h2 id="demo">Demo</h2>
-<p>Check out a live demo of the application at <a href="#">Demo Link</a>. (Replace with actual demo URL if available.)</p>
+<p>Check out a live demo of the application at <a href="https://food-frontend-92qe.onrender.com/">Demo Link</a>. (Replace with actual demo URL if available.)</p>
 
 <h2 id="technologies-used">Technologies Used</h2>
 <ul>
