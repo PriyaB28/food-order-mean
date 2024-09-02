@@ -45,7 +45,7 @@
   .input-field .login-button {
     margin-bottom: 10px !important;
   }
-  .login-button,
+  .login-button,.login-button-disabled,
   .register-button {
     width: 100%;
     padding: 12px;
@@ -61,6 +61,11 @@
     color: #fff;
   }
   
+  .login-button-disabled {
+    background-color: #ffc739;
+    color: #fff;
+  }
+  
   .login-button:hover {
     background-color: #ffaa00;
   }
@@ -71,6 +76,7 @@
     background-color: transparent;
     color: #333;
   }
+  
   
   .register-button:hover {
     color: #ffc739;

@@ -118,6 +118,9 @@ app.get("/seed", async (req, res) => {
 app.use("/api/foodItems", foodRouter);
 app.use("/api/user", loginRouter);
 app.use("/api/order", orderRouter);
+app.use('/',(res,req)=>{
+    res.send("404 not found")
+})
 app.listen(Port, () => {
   console.log("server started :" + Port);
 });

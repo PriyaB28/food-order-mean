@@ -3,8 +3,6 @@ const dotenv = require("dotenv");
 dotenv.config({ path: "../.env" });
 const secretKey = process.env.SECRET_KEY
 const authVerification = (req, res, next) => {
-  
-    
 
     try {
         const token = req.headers.access_token;

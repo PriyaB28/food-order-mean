@@ -37,12 +37,12 @@
         >
         <button
           type="submit"
-        class="login-button"
+        [ngClass]="'!loginForm.valid' ? 'login-button-disabled' : 'login-button'"
           [disabled]="!loginForm.valid"
         >
           Login
         </button>
-        <button type="button" class="register-button" routerLink="/register">Register</button>
+        <button type="button" ngClass="register-button" routerLink="/register">Register</button>
       </form>
     </div>
   </div>
