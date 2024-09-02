@@ -37,7 +37,7 @@
         >
         <button
           type="submit"
-        [ngClass]="'!loginForm.valid' ? 'login-button-disabled' : 'login-button'"
+        [ngClass]="!loginForm.valid ? 'login-button-disabled' : 'login-button'"
           [disabled]="!loginForm.valid"
         >
           Login
